@@ -1,0 +1,37 @@
+
+<h1 style="text-align:center"><strong>The Socio-Economic Determinants of Net Household Income in South Africa</strong>:</h1>
+<h2 style="text-align:center">An Exploratory Analysis Using General Household Survey Data</h2>
+<p style="text-align:left">Dataset: <a href="#">statsgov</a> </p>
+
+
+## Table of Contents
+<a id="section_n" name="section_n"></a>
+
+
+* [1. Introduction](#chapter2)
+    * [Heart Disease](#section_2_1)
+    * [Relevant Study](#section_2_2)
+    * [Research Question and Problem Statement](#section_2_3)
+    * [Data Description](#section_2_4)
+    * [Executive Summary](#section_2_5)
+    * [Variable Description](#section_2_6)
+* [2. Data Analysis and Exploration](#chapter3)
+    * [Data Preparation](#section_3_1)
+    * [Missing Values](#section_3_2)
+    * [Outliers](#section_3_3)
+    * [Encoding](#section_3_4)
+    * [Exploratory Analysis and Data Visualization](#section_3_5)
+* [3. Algorithm Implementation](#chapter4)
+    * [Data Preparation](#section_4_1)
+    * [Training A Model](#section_4_2)
+    * [Optimize The Model](#section_4_3)
+    * [Training A State of The Art Model](#section_4_4)
+    * [Compare Model Performance](#section_4_5)
+    * [Conclusion](#section_4_6)
+    
+    
+
+<a id="chapter2" name="chapter2">chapter2</a> 
+<a id="section_2_1" name="section_2_1">section_2_1</a>
+
+[back to top](#section_n)
