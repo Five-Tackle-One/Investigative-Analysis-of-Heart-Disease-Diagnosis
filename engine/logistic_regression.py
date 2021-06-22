@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from time import process_time
 from sklearn.linear_model import LinearRegression
 from . import accuracy as acc
-
+from math import log
 
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
@@ -30,6 +30,69 @@ def sgd(dataset,l_rate=0.3,n_epoch=1):
 
 
 
+def sgd_bincross(dataset,l_rate=0.3,n_epoch=1):
+    data = dataset.copy()
+    X = data.iloc[:,:-1]
+    Y = data.iloc[:,-1]
+    coefficients = np.zeros(len(X.columns))
+    sum_error = []
+    for epoch in range(n_epoch):
+        for observation in range(len(data)):
+            yhat = sigmoid(coefficients.T@X.iloc[observation])
+            error = -Y.iloc[observation]*log(yhat) - (1-Y.iloc[observation])*log(1-yhat)
+            diff = Y.iloc[observation] - yhat
+            coefficients[0] = coefficients[0] + l_rate * diff
+            for i in range(1,len(coefficients)):
+                coefficients[i] = coefficients[i] + l_rate * diff * X.iloc[observation,i]
+        sum_error.append(error)
+    return coefficients,sum_error
+
+def sgd_bincross_with_mini_batch(dataset,l_rate=0.4,n_epoch=150,batch_size=32):
+    data = dataset.copy()
+    X = data.iloc[:,:-1]
+    Y = data.iloc[:,-1]
+    coefficients = np.zeros(len(X.columns))
+    sum_error = []
+    for epoch in range(n_epoch):
+        mini_batches = create_minibatches(X,Y,batch_size)
+        for mini_batch in mini_batches:
+             for observation in range(len(mini_batch)):
+                X_batch = mini_batch.iloc[:,:-1]
+                y_batch = mini_batch.iloc[:,-1]
+                yhat = sigmoid(coefficients.T@X_batch.iloc[observation])
+                error = -y_batch.iloc[observation]*log(yhat) - (1-y_batch.iloc[observation])*log(1-yhat)
+                diff = y_batch.iloc[observation] - yhat
+                coefficients[0] = coefficients[0] + l_rate * diff
+                for i in range(1,len(coefficients)):
+                    coefficients[i] = coefficients[i] + l_rate * diff * X_batch.iloc[observation,i]
+        sum_error.append(error)
+    return coefficients,sum_error
+
+def sgd_with_regularization(dataset,l_rate=0.3,n_epoch=1,regularized_term=0.5):
+    data = dataset.copy()
+    X = data.iloc[:,:-1]
+    Y = data.iloc[:,-1]
+    coefficients = np.zeros(len(X.columns))
+    sum_error = []
+    for epoch in range(n_epoch):
+        for observation in range(len(data)):
+            yhat = sigmoid(coefficients.T@X.iloc[observation])
+            error = -Y.iloc[observation]*log(yhat) - (1-Y.iloc[observation])*log(1-yhat)
+            diff = Y.iloc[observation] - yhat
+            coefficients[0] = coefficients[0] + l_rate * diff
+            for i in range(1,len(coefficients)):
+                coefficients[i] = coefficients[i] + l_rate * (diff * X.iloc[observation,i] - (regularized_term/len(data))*coefficients[i])
+        sum_error.append(error-regularized_term * sum(coefficients**2))
+    return coefficients,sum_error
+
+
+
+"""
+Given hyperparameters, perform hyperparameter tuning by trying out different predetermined values and select the one that after trainin against validation data gives the highest accuracy
+
+This method does not actually see the testing data
+
+"""
 def validation(dataset,testing_data,y_test,learning_rates =  [0.2,0.3,0.4,0.5],epochs = [50,100,150,200]):
     data = dataset.copy()
     test = testing_data.copy()
@@ -41,3 +104,25 @@ def validation(dataset,testing_data,y_test,learning_rates =  [0.2,0.3,0.4,0.5],e
         results = acc.thresold_results(test,coefficients)
         accuracies.append(acc.accuracy_metric(y_test,np.array(results)))
     return np.argmax(np.array(accuracies))
+
+
+"""
+Create mini batches for mini-batch gradient descent
+"""
+def create_minibatches(X,y,batch_size=32):
+    data = X.join(y)
+    n_minibatches = data.shape[0] // batch_size
+    data = data.sample(frac=1)
+    mini_batches = []
+    i = 0
+    for i in range(n_minibatches + 1):
+        mini_batch = data.iloc[i * batch_size:(i + 1)*batch_size, :]
+        X_mini = mini_batch.iloc[:, :-1]
+        Y_mini = mini_batch.iloc[:, -1]
+        mini_batches.append(X_mini.join(Y_mini))
+    if data.shape[0] % batch_size != 0:
+        mini_batch = data.iloc[i * batch_size:data.shape[0]]
+        X_mini = mini_batch.iloc[:, :-1]
+        Y_mini = mini_batch.iloc[:, -1]
+    mini_batches.append(X_mini.join(Y_mini))
+    return mini_batches
