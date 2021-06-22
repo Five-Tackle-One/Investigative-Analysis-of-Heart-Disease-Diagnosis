@@ -1,5 +1,7 @@
 import pandas as pd 
 import numpy as np
+from random import seed
+from random import randrange
 
 """
 The previous researchers were distinguishing the present of a heart disease vs the absence of heart disease.
@@ -92,3 +94,84 @@ def replace_missing_with_mode(dataset):
         mode = data[missing_feature].mode().values[0]
         data[missing_feature] = data[missing_feature].fillna(mode)
     return data
+
+
+
+"""
+Recreate the dataset with named feature values instead for display purpses
+
+"""
+
+def make_description_dataset(dataset,categories):    
+    description_dataset = dataset.copy()[categories]
+    description_dataset['sex'] = description_dataset['sex'].map({1:"Male",0:"Female"})
+    description_dataset['cp']  = description_dataset['cp'].map({1:"Typical Angina",2:"Atypical Angina",3:'Non-Anginal Pain',4:'Asymptotic'})
+    description_dataset['fbs']  = description_dataset['fbs'].map({1:"True",2:"False"})
+    description_dataset['restecg']  = description_dataset['restecg'].map({0:"Normal",1:"Having ST-T Wave",2:"Left-Ventricular Hyerpthrophy"})
+    description_dataset['exang']  = description_dataset['exang'].map({0:"No",1:"Yes"})
+    description_dataset['slope']  = description_dataset['slope'].map({1:"Upsloping",2:"Flat",3:"Downsloping"})
+    description_dataset['num']  = description_dataset['num'].map({1:"Presence",0:"Absence"})
+    return description_dataset
+
+
+
+def minmax_column(dataset,column):
+    data = dataset.copy()
+    min_ = min(data[column])
+    max_ = max(data[column])
+    return (data[column] - min_)/(max_ - min_)
+
+
+"""
+Perform Min-Max Scaling on the dataset
+"""
+def minmax_scale(dataset):
+    features = list(dataset.iloc[:,:-1].columns)
+    data = dataset.copy()
+    for feature in features:
+        if len(data[feature].value_counts()) > 1:
+            data[feature] = minmax_column(dataset,feature)
+    return data
+
+
+
+
+"""
+Split the dataset into train and split data
+
+"""
+def train_test_split(dataset, split=0.70):
+    train = list()
+    train_size = split * len(dataset)
+    dataset_copy = list(dataset)
+    while len(train) < train_size:
+        index = randrange(len(dataset_copy))
+        train.append(dataset_copy.pop(index))
+    return train, dataset_copy
+
+
+"""
+Perform K-Fold Cross Validation and return the folded datasets
+
+"""
+def cross_validation_split(dataset, folds=3):
+    dataset_split = list()
+    dataset_copy = list(dataset)
+    fold_size = int(len(dataset) / folds)
+    for i in range(folds):
+        fold = list()
+        while len(fold) < fold_size:
+            index = randrange(len(dataset_copy))
+            fold.append(dataset_copy.pop(index))
+        dataset_split.append(fold)
+    return dataset_split
+
+
+
+
+def add_influence(results):
+    values = results.copy()
+    if len(np.unique(results)) == 1:
+        values[0] = 0
+        values[1] = 1
+    return values
