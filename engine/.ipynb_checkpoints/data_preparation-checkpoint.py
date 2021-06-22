@@ -33,3 +33,62 @@ def add_bias(dataset):
     bias = np.ones(len(data))
     data.insert(0,"Bias",bias)
     return data
+
+
+
+
+"""
+Encode the column 
+"""
+def encode_column(dataset,column):
+    data = dataset.copy()
+    data = data.join(pd.get_dummies(data[column],prefix=column))
+    data.drop(columns=[column],inplace=True)
+    return data
+
+
+
+"""
+Perform one-hot encoding on a dataset
+"""
+def one_hot_encoding(dataset,dummy_labels = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca'],target='num'):
+    data = dataset.copy()
+    target_values = data[target]
+    for dummy_label in dummy_labels:
+        data = encode_column(data,dummy_label)
+    data.drop(columns=[target],inplace=True)
+    data[target] = target_values
+    return data
+
+
+def one_hot_encoding_2(dataset,dummy_labels = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca'],target='num'):
+    data = dataset.copy()
+    encode_data = pd.get_dummies(data, columns=dummy_labels, prefix=dummy_labels)
+    target_values = encode_data[target]
+    encode_data = encode_data.drop(columns=target)
+    encode_data[target] = target_values
+    return encode_data
+
+
+"""
+Given a dataset return a list of features that have missing values
+"""
+def get_missing_features(dataset):
+    data = dataset.copy()
+    data_missing_dict_sum  = dict(data.isnull().sum())
+    data_missing_dict = dict(filter(lambda elem: elem[1] > 0, data_missing_dict_sum.items()))
+    missing_features = list(data_missing_dict.keys())
+    return missing_features
+
+"""
+Given a dataset 
+1: Find the missing values 
+2: Replace the missing values with the mode
+"""
+def replace_missing_with_mode(dataset):
+    data = dataset.copy()
+    missing_features = get_missing_features(data)
+    for missing_feature in missing_features:
+        mode = data[missing_feature].mode().values[0]
+        data[missing_feature] = data[missing_feature].fillna(mode)
+    return data
