@@ -69,9 +69,24 @@ In the subsequent chapter, we discuss data preparation, data handling, preproces
 \newpage
 \section{Implementation and Results}
 \subsection{data handling}
+Data handling is arguable the most important part of building a machine learning algorithm that produces the best accuracy possible. For us to learn machine learning, it had to be well presented and well documented. Similarly, for a machine to learn, data needs to be well presented and it needs to be complete. There are four important parts of data handling worth mentioning, these are: 
+\begin{itemize}
+    \item \textbf{Dealing with duplicate values: }\textit{Duplicate values} may cause our model to be biased against data that doesn't have duplicate instances. To best train our model, we handle this issue by dropping all \textit{duplicate values}, leaving only one instance of it.
+    \item \textbf{Missing Values: }Missing values is the most common defect found in a lot of datasets. Missing values may be a result of a recording error, or maybe the respondent did not know the answer to that specific question, or any other reason not mentioned here. In our project, we deal with missing values in three different ways, namely:
+        \begin{itemize}
+            \item \textbf{Drop missing values: }Delete the rows that have missing values.
+            \item \textbf{Replace with Mode/Mean: }In the case of replacement with mode, replace the missing values with data points that appear the most in that particular column. In the case of replacement by mean, replace the missing values with the average of all values that are not missing in that particular column. In our implementation, we only used replacement by mode. 
+            \item \textbf{Learn missing values: }Here we resort to other machine learning algorithms to predict what the missing values would be. We make use of unsupervised learning methods to learn the missing values.
+        
+        \end{itemize}
+        In our project, we generated three different datasets from the above forms dealing with missing values. We then run our models on all these datasets to see which method gives the best accuracy.
+    \item \textbf{Data standardization: }Data standardization is the rescaling of the values in the dataset so that there isn't a biased contribution in the decision-making process of our model. Take, for example, one feature that has values from 100 to 10000 and another feature that has values from 0 to 1, if the data isn't standardized, the latter feature will be insignificant in the decision-making process. 
+    \item \textbf{The bias term: } Upon dealing with duplicate values, missing values, and feature scaling, we add a column of 1's as the left-most column of our dataset. This makes it easy for us to implement the model. Adding a bias gives us the desired shape to compute the dot product between a record and the $\theta$ theta parameters.
+\end{itemize}
+At this point, our datasets have taken a clean and workable form. We can now implement our algorithms on these datasets.
 
 \subsection{Implementations of Logistic Regression}
-
+In this subsection, we discuss two baseline implementations upon which we make improvements. The training stage of logistic regression involves an iterative process of learning the parameters that produce the best prediction. In the baseline implementation, we train our model using stochastic gradient descent. 
 \subsection{Analysis of baseline results}
 
 \subsection{etc}
