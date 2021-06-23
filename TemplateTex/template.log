@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.25)  23 JUN 2021 23:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.25)  23 JUN 2021 23:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -944,77 +944,88 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 53
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [1] [2] [3]
-<Images/logCONFUSION.png, id=154, 371.3875pt x 449.68pt>
+<Images/logCONFUSION.png, id=158, 266.9975pt x 333.245pt>
 File: Images/logCONFUSION.png Graphic file (type png)
 <use Images/logCONFUSION.png>
 Package pdftex.def Info: Images/logCONFUSION.png  used on input line 124.
-(pdftex.def)             Requested size: 185.69328pt x 224.83945pt.
+(pdftex.def)             Requested size: 133.49841pt x 166.62209pt.
  [4]
-<Images/logCOST.png, id=167, 371.3875pt x 442.65375pt>
+<Images/logCOST.png, id=171, 281.05pt x 332.24126pt>
 File: Images/logCOST.png Graphic file (type png)
 <use Images/logCOST.png>
 Package pdftex.def Info: Images/logCOST.png  used on input line 142.
-(pdftex.def)             Requested size: 185.69328pt x 221.32632pt.
+(pdftex.def)             Requested size: 140.52464pt x 166.12021pt.
  [5 </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/logCONFUSION.png>]
-<Images/logROC.png, id=173, 366.36874pt x 440.64626pt>
+<Images/logROC.png, id=177, 268.00125pt x 330.23375pt>
 File: Images/logROC.png Graphic file (type png)
 <use Images/logROC.png>
 Package pdftex.def Info: Images/logROC.png  used on input line 150.
-(pdftex.def)             Requested size: 183.18391pt x 220.32259pt.
+(pdftex.def)             Requested size: 134.00029pt x 165.11646pt.
  [6 </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/logCOST.png> </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/logROC.png>] [7]
 Overfull \hbox (3.21869pt too wide) in paragraph at lines 184--185
 []\T1/ptm/b/n/10.95 Stochastic: \T1/ptm/m/n/10.95 Stochas-tic gra-di-ent de-scent is the one we have used in our base-line im-ple-men-ta-tion. Stochas-
  []
 
-<Images/RD_C.png, id=186, 408.52625pt x 332.24126pt>
+<Images/RD_C.png, id=190, 410.53375pt x 335.2525pt>
 File: Images/RD_C.png Graphic file (type png)
 <use Images/RD_C.png>
 Package pdftex.def Info: Images/RD_C.png  used on input line 200.
-(pdftex.def)             Requested size: 245.11765pt x 199.34628pt.
+(pdftex.def)             Requested size: 246.32214pt x 201.15305pt.
 [8]
-<Images/RD_CM.png, id=191, 370.38374pt x 290.08376pt>
+<Images/RD_CM.png, id=195, 383.4325pt x 286.06876pt>
 File: Images/RD_CM.png Graphic file (type png)
 <use Images/RD_CM.png>
 Package pdftex.def Info: Images/RD_CM.png  used on input line 208.
-(pdftex.def)             Requested size: 222.23195pt x 174.05159pt.
-<Images/RD_ROC.png, id=192, 275.0275pt x 328.22626pt>
+(pdftex.def)             Requested size: 230.06126pt x 171.64258pt.
+<Images/RD_ROC.png, id=196, 401.5pt x 281.05pt>
 File: Images/RD_ROC.png Graphic file (type png)
 <use Images/RD_ROC.png>
 Package pdftex.def Info: Images/RD_ROC.png  used on input line 216.
-(pdftex.def)             Requested size: 165.01776pt x 196.93727pt.
+(pdftex.def)             Requested size: 240.90184pt x 168.63129pt.
  [9 </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/RD_C.png> </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/RD_CM.png>]
-<Images/RR_C.png, id=201, 419.5675pt x 336.25626pt>
+<Images/RR_C.png, id=205, 414.54875pt x 329.23pt>
 File: Images/RR_C.png Graphic file (type png)
 <use Images/RR_C.png>
 Package pdftex.def Info: Images/RR_C.png  used on input line 224.
-(pdftex.def)             Requested size: 251.74243pt x 201.75531pt.
-<Images/RR_CM.png, id=202, 368.37625pt x 289.08pt>
+(pdftex.def)             Requested size: 248.73116pt x 197.53952pt.
+<Images/RR_CM.png, id=206, 385.44pt x 279.0425pt>
 File: Images/RR_CM.png Graphic file (type png)
 <use Images/RR_CM.png>
 Package pdftex.def Info: Images/RR_CM.png  used on input line 233.
-(pdftex.def)             Requested size: 221.02744pt x 173.44933pt.
+(pdftex.def)             Requested size: 231.26578pt x 167.42679pt.
  [10 </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/RD_ROC.png> </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/RR_C.png>]
-<Images/RR_ROC.png, id=209, 395.4775pt x 292.09125pt>
+<Images/RR_ROC.png, id=213, 393.47pt x 286.06876pt>
 File: Images/RR_ROC.png Graphic file (type png)
 <use Images/RR_ROC.png>
 Package pdftex.def Info: Images/RR_ROC.png  used on input line 242.
-(pdftex.def)             Requested size: 237.28833pt x 175.25609pt.
- [11 </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/RR_CM.png> </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/RR_ROC.png>] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
+(pdftex.def)             Requested size: 236.0838pt x 171.64258pt.
+ [11 </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/RR_CM.png> </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/RR_ROC.png>]
+<Images/state.png, id=220, 846.16125pt x 415.5525pt>
+File: Images/state.png Graphic file (type png)
+<use Images/state.png>
+Package pdftex.def Info: Images/state.png  used on input line 254.
+(pdftex.def)             Requested size: 507.70067pt x 249.33342pt.
+
+Overfull \hbox (29.69429pt too wide) in paragraph at lines 254--255
+ [] 
+ []
+
+<Images/statess.png, id=221, 822.07124pt x 347.2975pt>
+File: Images/statess.png Graphic file (type png)
+<use Images/statess.png>
+Package pdftex.def Info: Images/statess.png  used on input line 261.
+(pdftex.def)             Requested size: 493.24655pt x 208.3801pt.
+
+Overfull \hbox (15.24017pt too wide) in paragraph at lines 261--262
+ [] 
+ []
+
+[12 </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/state.png>] [13 </home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/Images/statess.png>] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
-
- []
-
-) [14]
+) [15]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
  (/home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/template.aux)
@@ -1025,18 +1036,18 @@ Package rerunfilecheck Info: File `template.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
  ) 
 Here is how much of TeX's memory you used:
- 23251 strings out of 481239
- 423833 string characters out of 5920376
+ 23266 strings out of 481239
+ 424086 string characters out of 5920376
  883967 words of memory out of 5000000
- 37899 multiletter control sequences out of 15000+600000
+ 37909 multiletter control sequences out of 15000+600000
  598708 words of font info for 139 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,16n,66p,895b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/template.pdf (18 pages, 337243 bytes).
+Output written on /home/beast/Documents/School/Honors/ACM_Learning/assignment/Investigative-Analysis-of-Heart-Disease-Diagnosis/TemplateTex/template.pdf (19 pages, 397380 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 223 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 207 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 287 PDF objects out of 1000 (max. 8388607)
+ 231 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 217 words of extra memory for PDF output out of 10000 (max. 10000000)
 

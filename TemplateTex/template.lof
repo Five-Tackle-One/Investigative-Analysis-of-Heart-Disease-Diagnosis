@@ -8,3 +8,5 @@
 \contentsline {figure}{\numberline {7}{\ignorespaces Cost against number of iterations for Regularized LR with Replaced Missing Values}}{10}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Confusion Matrix for Regularized LR with Imputed Missing Values}}{11}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces ROC Curve for Regularized LR with Imputed Missing Values}}{11}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces ROC Curves for state of the art and our best performing model}}{12}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Confussion matrices for state of the art and our best performing model}}{13}{figure.11}%

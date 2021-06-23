@@ -221,7 +221,7 @@ There isn't much to say, so we'll go directly to the figures and begin analysis 
     \item \textbf{On Data With Imputed/Replaced Missing Values:} Consistency is key, or so they say. For the sake of consistency, we will start by looking at the graph of cost against the number of iterations. 
     \begin{figure}[H]
         \begin{center}
-            \includegraphics[scale=0.6]{Images/RR_C.png}
+            \includegraphics[scale=0.6]{Images/RR_C.png} 
         \end{center}
         \caption{Cost against number of iterations for Regularized LR with Replaced Missing Values}
     \end{figure}
@@ -248,6 +248,20 @@ There isn't much to say, so we'll go directly to the figures and begin analysis 
 
 \section{Bonus}
 We needed a way to measure how good we are in terms of the algorithms we implemented. We, therefore, went a step further to implement one more model using the state-of-the-art algorithm. We then measured our best-performing algorithm against the state-of-the-art. We are, however, only interested in the accuracy metrics and nothing else.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.6]{Images/state.png}
+    \end{center}
+    \caption{ROC Curves for state of the art and our best performing model}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.6]{Images/statess.png}
+    \end{center}
+    \caption{Confussion matrices for state of the art and our best performing model}
+\end{figure}
 \newpage
 \section{Conclusion}
 As much as we managed to get much done, there is a lot more we could have looked into. We focused on accuracy mostly yet other metrics like recall and specificity were not considered. These metrics can be deduced from the confusion matrices. We, therefore, had the data but not the time to incorporate all these. These are, therefore, part of the future considerations. Regularization gives the best performance.
@@ -256,9 +270,7 @@ As much as we managed to get much done, there is a lot more we could have looked
 \section{Web References}
 [1] \href{https://my.clevelandclinic.org/health/diseases/17069-heart-failure-understanding-heart-failure}{Heart Failure} \\
 
-[2] \href{https://my.clevelandclinic.org/health/diseases/17069-heart-failure-understanding-heart-failure}{Heart Disease} \\
-
-[3] \href{https://my.clevelandclinic.org/health/diseases/17069-heart-failure-understanding-heart-failure}{Heart Failure} \\
-
+[2] \href{https://pubmed.ncbi.nlm.nih.gov/2756873/}{International application of a new probability algorithm for the diagnosis of coronary artery disease} \\
+R Detrano 1, A Janosi, W Steinbrunn, M Pfisterer, J J Schmid, S Sandhu, K H Guppy, S Lee, V Froelicher
     
     
