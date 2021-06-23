@@ -188,7 +188,77 @@ Before we explain what Mini-Batch gradient descent is, we first need to explain 
 We have implemented Mini-Batch gradient descent in an attempt to optimize both computational expense and accuracy. We, however, only run the Mini-Batch on one dataset even though we have two, which we discussed in the previous subsection. We also did not implement Mini-Batch gradient descent with regularized logistic regression.  The reason for missing some implementation is due to the constraints of time.
 
 \subsection{Outcomes of optizimations}
+We are not doing research here, we did not ask whether we will be able to optimize logistic regression or not. We have talked the talk, walked the walk, it's now time for the board to meet the chalk. It's time to pen down results that matter. In this section, we discuss the results of the implementations we mentioned above while aiming to optimize logistic regression. Starting with \textbf{regularized} logistic regression.
 
+\subsubsection{Regularized Logistic Regression}
+
+There isn't much to say, so we'll go directly to the figures and begin analysis from there. Regularized logistic regression has been run on two different datasets.
+\begin{itemize}
+    \item \textbf{On Data with Dropped Missing Values:} Below is the graph of the errors over the number iterations.
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.6]{Images/RD_C.png}
+        \end{center}
+        \caption{Cost against number of iterations for Regularized LR with dropped missing values}
+    \end{figure}
+    The graph is almost linear. The values on the y-axis compared to the ones on the non-regularised model shows how the regularized model starts off with smaller errors. Since the errors start off smaller, the algorithm converges faster. In terms of computational expense, we can already see that the optimized algorithm works better than the baseline implementation.\\
+    Below is the Confussion matrix for the currently considered implementation.
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.6]{Images/RD_CM.png}
+        \end{center}
+        \caption{Confusion Matrix for Regularized LR with Dropped Missing Values}
+    \end{figure}
+    calculating the accuracy directly from the confusion matrix using the formula$\frac{TN + TP}{TP + TN + FP + FN}$, we get an accuracy of $78.59\%$ which is better than that of the baseline implementation. 
+    At this point we can already see that with regularization, we gain both better performance and accuracy. For convenience sake, below is the corresponding ROC Curve.
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.6]{Images/RD_ROC.png}
+        \end{center}
+        \caption{ROC Curve for Regularized LR with Dropped Missing Values}
+    \end{figure}
+
+    \item \textbf{On Data With Imputed/Replaced Missing Values:} Consistency is key, or so they say. For the sake of consistency, we will start by looking at the graph of cost against the number of iterations. 
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.6]{Images/RR_C.png}
+        \end{center}
+        \caption{Cost against number of iterations for Regularized LR with Replaced Missing Values}
+    \end{figure}
+    Using this graph, we can deduce the performance of the model. This model seems to be slower to converge compared to the one mentioned above. We can deduce this from looking at the costs and where they start. At this point, however, we are not certain whether the performance is indeed worse or not. We will verify this using the ROC curve we are yet to analyze.
+    \\
+    Next up is the accuracy measure. 
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.6]{Images/RR_CM.png}
+        \end{center}
+        \caption{Confusion Matrix for Regularized LR with Imputed Missing Values}
+    \end{figure}
+    It is worthy to mention that more than just accuracy can be deduced from a confusion matrix. We will discuss that though in subsequent chapters. Using our most famous formula which we probably have memorized by now, this model gives the best accuracy of 81.01\%. 
+    \\
+    Here we will analyze the ROC curve more closely than in previous cases. The reason being, we need to know if this model performs worse in terms of computational time or not.
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.6]{Images/RR_ROC.png}
+        \end{center}
+        \caption{ROC Curve for Regularized LR with Imputed Missing Values}
+    \end{figure}
+    All we need to look at is the area under the curve and line. The smaller the area, the longer it takes for the model to converge. I am not if we look closely, consider where the lines bend inwards, we can clearly see here that we will end up with a smaller area under the curve. The orientation of these graphs might be misleading since the one above is narrower. The algorithm implemented on imputed data has better accuracy but it's slower in terms of time complexity. 
+\end{itemize}
+
+\section{Bonus}
+We needed a way to measure how good we are in terms of the algorithms we implemented. We, therefore, went a step further to implement one more model using the state-of-the-art algorithm. We then measured our best-performing algorithm against the state-of-the-art. We are, however, only interested in the accuracy metrics and nothing else.
 \newpage
 \section{Conclusion}
+As much as we managed to get much done, there is a lot more we could have looked into. We focused on accuracy mostly yet other metrics like recall and specificity were not considered. These metrics can be deduced from the confusion matrices. We, therefore, had the data but not the time to incorporate all these. These are, therefore, part of the future considerations. Regularization gives the best performance.
 
+\newpage
+\section{Web References}
+[1] \href{https://my.clevelandclinic.org/health/diseases/17069-heart-failure-understanding-heart-failure}{Heart Failure} \\
+
+[2] \href{https://my.clevelandclinic.org/health/diseases/17069-heart-failure-understanding-heart-failure}{Heart Disease} \\
+
+[3] \href{https://my.clevelandclinic.org/health/diseases/17069-heart-failure-understanding-heart-failure}{Heart Failure} \\
+
+    
+    

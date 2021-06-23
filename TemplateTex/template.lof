@@ -2,3 +2,9 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Confusion matrix for the baseline logistic regression model}}{5}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Cost function over a number of iterations for a baseline logistic regression implementation}}{6}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces ROC curve for a baseline logistic regression implementation}}{6}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Cost against number of iterations for Regularized LR with dropped missing values}}{9}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Confusion Matrix for Regularized LR with Dropped Missing Values}}{9}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces ROC Curve for Regularized LR with Dropped Missing Values}}{10}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Cost against number of iterations for Regularized LR with Replaced Missing Values}}{10}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Confusion Matrix for Regularized LR with Imputed Missing Values}}{11}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces ROC Curve for Regularized LR with Imputed Missing Values}}{11}{figure.9}%
