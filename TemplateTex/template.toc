@@ -1,0 +1,15 @@
+\babel@toc {english}{}
+\contentsline {section}{Abstact}{iii}{section*.1}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Machine Learning technique and datasets}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Technique}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Datasets}{1}{subsubsection.1.1.2}%
+\contentsline {section}{\numberline {2}Implementation and Results}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}data handling}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Implementations of Logistic Regression}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Analysis of baseline results}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}etc}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Optimization Techniques}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Employed techniques}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Outcomes of optizimations}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Conclusion}{4}{section.4}%
