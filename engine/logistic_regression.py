@@ -73,10 +73,12 @@ def sgd_bincross_with_mini_batch(dataset,l_rate=0.4,n_epoch=150,batch_size=32):
     Y = data.iloc[:,-1]
     coefficients = np.zeros(len(X.columns))
     sum_error = []
+    sums = []
     for epoch in range(n_epoch):
         mini_batches = create_minibatches(X,Y,batch_size)
         for mini_batch in mini_batches:
-             for observation in range(len(mini_batch)):
+            error = 0
+            for observation in range(len(mini_batch)):
                 X_batch = mini_batch.iloc[:,:-1]
                 y_batch = mini_batch.iloc[:,-1]
                 yhat = sigmoid(coefficients.T@X_batch.iloc[observation])
@@ -85,8 +87,9 @@ def sgd_bincross_with_mini_batch(dataset,l_rate=0.4,n_epoch=150,batch_size=32):
                 coefficients[0] = coefficients[0] + l_rate * diff
                 for i in range(1,len(coefficients)):
                     coefficients[i] = coefficients[i] + l_rate * diff * X_batch.iloc[observation,i]
-        sum_error.append(error)
-    return coefficients,sum_error
+            sum_error.append(error)
+        sums.append(sum(sum_error)/len(sum_error))
+    return coefficients,sums
 
 def sgd_with_regularization(dataset,l_rate=0.3,n_epoch=1,regularized_term=0.5):
     data = dataset.copy()
