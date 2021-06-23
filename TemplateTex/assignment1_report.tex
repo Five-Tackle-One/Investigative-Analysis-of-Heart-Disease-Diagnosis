@@ -24,6 +24,9 @@
 \tableofcontents
 
 \newpage
+\listoffigures
+
+\newpage
 \vspace*{\fill}
 \begin{abstract}
     \begin{center}
@@ -86,18 +89,105 @@ Data handling is arguable the most important part of building a machine learning
 At this point, our datasets have taken a clean and workable form. We can now implement our algorithms on these datasets.
 
 \subsection{Implementations of Logistic Regression}
-In this subsection, we discuss two baseline implementations upon which we make improvements. The training stage of logistic regression involves an iterative process of learning the parameters that produce the best prediction. In the baseline implementation, we train our model using stochastic gradient descent. 
-\subsection{Analysis of baseline results}
+In this subsection, we are going to discuss one implementation. This is the baseline working implementation. The training of a logistic regression model is an iterative approach. We use gradient descent to continuously tune the parameters or thetas so that at every iteration, the error is reduced. We tune these parameters by optimizing the cost function. The cost function of logistic regression takes the following form: 
 
-\subsection{etc}
+\begin{equation}
+    J(\theta) = -\frac{1}{m}\sum_{i=1}^{n}[y^{(i)}log(h_{\theta}(x^{(i)})) + (1-y^{(i)})log(1-h_{\theta}(x^{(i)}))]
+\end{equation}
+
+where $y^{(i)}$ is the true value for $i^{th}$ observation and $h_{\theta}(x^{(i)})$ is the predicted value and it's equation is given by:
+
+\begin{equation}
+    h_{\theta}(x^{(i)}) = \frac{1}{1 + e^{-\theta^tx}}
+\end{equation}
+
+To train our model, we need to minimize $J(\theta)$ we need to find its derivative which is given by:
+
+\begin{equation}
+    \frac{\partial J(\theta)}{\partial \theta_j} = \sum_{i=1}^n ( h_{\theta}(x^{(i)}) - y^{(i)} )x_j^{(i)}
+\end{equation}
+
+Given the above equation, we can then update all our wieghts at every iteration by:
+
+\begin{equation}
+    \theta_j = \theta_j - \alpha \sum_{i=1}^n ( h_{\theta}(x^{(i)}) - y^{(i)} )x_j^{(i)}
+\end{equation}
+
+The update of these weights must happen simultaneously. We repeat this step as many times as we need. We can either employ stopping criteria or run it a certain number of times.
+\\
+The parameters $\theta$ are what we are trying to get. Initially, $\theta$ is randomly selected.
+
+\subsection{Analysis of baseline results}
+Recall that we have a large dataset because it is a dataset combined with other datasets. Upon training, we tested our model on a dataset of 61 records. Below is a confusion matrix, which shows how many times did the model predict correctly and how many times it didn't.
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{Images/logCONFUSION.png}
+    \end{center}
+    \caption{Confusion matrix for the baseline logistic regression model}
+\end{figure}
+
+We can interpret the confusion matrix as follows:
+\begin{itemize}
+    \item \textbf{Top Left TP: } These are the true positive values, a person with a heart disease was correctly classified as a person who has a heart disease.
+    \item \textbf{Top Right FP: } These are the false positives. A person with a healthy heart was incorrectly classified as a person who has a heart disease.
+    \item \textbf{Bottom Left FN: } These are false negatives. False negatives are people that have been classified as not having any heart diseases when they actually do have heart diseases. This is a worst-case scenario and we want this value to be as low as possible.
+    \item \textbf{Bottom Right TN: } True negatives are those people who are correctly classified as not having any heart diseases.
+\end{itemize}
+
+The accuracy of this model can be calculated as the $\frac{TN + TP}{TP + TN + FP + FN}$ which gives an accuracy of approximately $75\%$
+
+Another thing worth noting is the graph that shows the error from the time of training to the end of training. This graph shows us that over time we were able to minimize the error. Take a good look at the graph below.
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{Images/logCOST.png}
+    \end{center}
+    \caption{Cost function over a number of iterations for a baseline logistic regression implementation}
+\end{figure}
+
+One last figure we would like to discuss in this subsection is the ROC curve. The ROC curve basically gives us a visual presentation of how good our model is. If the curve is on the far left, this means the model is good, if it leans towards a straight line, then our model can not be relied upon.
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.5]{Images/logROC.png}
+    \end{center}
+    \caption{ROC curve for a baseline logistic regression implementation}
+\end{figure}
+We can conclude this subsection with a comment regarding the ROC curve. Clearly, our model, though it has not been optimized looks to be doing a good job.
 
 
 \section{Optimization Techniques}
+In this chapter, we discuss the optimization techniques we have employed. These techniques were employed in making our original model better. We mainly aim to get better accuracies with our results, but these optimization techniques optimize other things other than improving accuracy. Optimization techniques can optimize the training time, data quality, etc.
+
 \subsection{Employed techniques}
+We hoped we could have more time to explore many more ways of optimizing logistic regression. We however only considered two optimization techniques, these are:
+
+\subsubsection{Regularization}
+Sometimes we have a complex model that aims to solve an easy problem. For instance, we could have a model that aims to solve a problem of a cubic function only to find that our data takes a linear shape. This leads to overfitting. Regularization aims to avoid overfitting by penalizing higher-order polynomials so that they have minimal effect on our overall model. We achieve regularization by adding a regularization term to our cost function. Our cost function will then take the shape below.
+\begin{equation}
+    J(\theta) = -\frac{1}{m}\sum_{i=1}^{n}[y^{(i)}log(h_{\theta}(x^{(i)})) + (1-y^{(i)})log(1-h_{\theta}(x^{(i)}))] +\frac{\lambda}{2m}\sum_{j=1}^m \theta_j^2 
+\end{equation}
+
+where $\lambda$ determines how much should we penalize $\theta$
+
+To find $\theta's$ that minimizes the cost function, we have the following derivative:
+\begin{equation}
+    \frac{\partial}{\partial \theta_j}J(\theta) = \frac{1}{m}[ \sum_{i=1}^n(h(x^{(i)}) - y^{(i)})x_j^{(i)} + \lambda \theta_j ] 
+\end{equation}
+Gradient descent remains the same except that except that we replace the derivative with the new derivative above.
+
+In our implementation, we train and the regularized logistic regression on two different datasets. We train on the dataset which had the missing values dropped and the datasets which had the missing values replaced with the mode in that particular column. We will then compare the results and make conclusions thereof.
+
+
+\subsubsection{Mini-Batch Gradient Descent}
+Before we explain what Mini-Batch gradient descent is, we first need to explain what other gradient descents exist and why have we chosen this approach. At this point of the report, we believe you as a reader know how gradient descent work from an abstract point of view. We therefore only going to focus on the differences of these gradient descents. There are three types of gradient descents, namely:
+\begin{itemize}
+    \item \textbf{Batch: }Batch gradient descent aims to take a single step only upon considering all records in the datasets and takes the average gradient of all data points in the training set. The problem arises when the dataset is too large. If the dataset is too large, then we could take forever to train a simple model. Batch gradient descent is great for convex functions.
+    \item \textbf{Stochastic: }Stochastic gradient descent is the one we have used in our baseline implementation. Stochastic gradient descent poses a problem with not reaching the minimum due to the costs decreasing with fluctuations. SGD is great for datasets of large sizes.
+    \item \textbf{Mini-Batch: }Mini-Batch is a mixture of both Bath and SGD. It aims to tackle problems that arise with using either Batch or SGD. Stochastic is more computationally expensive while Batch converges directly to a minimum. The idea here is that we want to converge faster while minimizing computational expense.
+\end{itemize}
+
+We have implemented Mini-Batch gradient descent in an attempt to optimize both computational expense and accuracy. We, however, only run the Mini-Batch on one dataset even though we have two, which we discussed in the previous subsection. We also did not implement Mini-Batch gradient descent with regularized logistic regression.  The reason for missing some implementation is due to the constraints of time.
 
 \subsection{Outcomes of optizimations}
-
-
 
 \newpage
 \section{Conclusion}

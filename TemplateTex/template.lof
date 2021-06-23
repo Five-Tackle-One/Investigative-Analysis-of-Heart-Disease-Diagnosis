@@ -1,0 +1,4 @@
+\babel@toc {english}{}
+\contentsline {figure}{\numberline {1}{\ignorespaces Confusion matrix for the baseline logistic regression model}}{5}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Cost function over a number of iterations for a baseline logistic regression implementation}}{6}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces ROC curve for a baseline logistic regression implementation}}{6}{figure.3}%

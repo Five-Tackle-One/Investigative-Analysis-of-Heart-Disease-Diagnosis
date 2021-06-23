@@ -1,4 +1,4 @@
-\BOOKMARK [1][-]{section*.1}{Abstact}{}% 1
+\BOOKMARK [1][-]{section*.2}{Abstact}{}% 1
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 2
 \BOOKMARK [2][-]{subsection.1.1}{Machine Learning technique and datasets}{section.1}% 3
 \BOOKMARK [3][-]{subsubsection.1.1.1}{Technique}{subsection.1.1}% 4
@@ -7,8 +7,9 @@
 \BOOKMARK [2][-]{subsection.2.1}{data handling}{section.2}% 7
 \BOOKMARK [2][-]{subsection.2.2}{Implementations of Logistic Regression}{section.2}% 8
 \BOOKMARK [2][-]{subsection.2.3}{Analysis of baseline results}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.4}{etc}{section.2}% 10
-\BOOKMARK [1][-]{section.3}{Optimization Techniques}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{Employed techniques}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{Outcomes of optizimations}{section.3}% 13
-\BOOKMARK [1][-]{section.4}{Conclusion}{}% 14
+\BOOKMARK [1][-]{section.3}{Optimization Techniques}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{Employed techniques}{section.3}% 11
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Regularization}{subsection.3.1}% 12
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Mini-Batch Gradient Descent}{subsection.3.1}% 13
+\BOOKMARK [2][-]{subsection.3.2}{Outcomes of optizimations}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Conclusion}{}% 15
