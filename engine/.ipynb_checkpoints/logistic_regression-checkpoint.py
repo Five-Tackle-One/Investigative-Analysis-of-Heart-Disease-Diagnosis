@@ -88,7 +88,7 @@ def sgd_bincross_with_mini_batch(dataset,l_rate=0.4,n_epoch=150,batch_size=32):
                 for i in range(1,len(coefficients)):
                     coefficients[i] = coefficients[i] + l_rate * diff * X_batch.iloc[observation,i]
             sum_error.append(error)
-        sums.append(sum(sum_error)/len(sum_error))
+        sums.append(min(sum_error))
     return coefficients,sums
 
 def sgd_with_regularization(dataset,l_rate=0.3,n_epoch=1,regularized_term=0.5):
